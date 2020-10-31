@@ -1,0 +1,52 @@
+create database pi_3;
+use pi_3;
+
+create table vendas(
+produto varchar(45) not null,
+quantidade int not null,
+CPF varchar(15) not null,
+nomeVendedor varchar(45),
+desconto double,
+primary key(CPF)
+);
+
+create table cliente(
+nome varchar(45) not null,
+email varchar(45) not null,
+cpf varchar(15) not null,
+primary key(cpf)
+);
+
+
+create table produto(
+codigo int auto_increment,
+descricao varchar(45) not null,
+preco double not null,
+estoque long not null,
+codigoMarca int not null,
+codigoCategoria int not null,
+unidade varchar(45) not null,
+primary key(codigo)
+);
+
+create table relatorio(
+idVenda int auto_increment,
+dataVenda date,
+nome varchar(45) not null,
+filial varchar (15) not null,
+primary key(idVenda)
+);
+
+create table usuario(
+codigo int auto_increment,
+nome varchar(45) not null,
+apelido varchar(45) not null,
+codigoCargo int not null,
+primary key(codigo)
+);
+
+insert into cliente(nome,email,cpf) value ("jorge","Jorge@gmail.com","124.124.144-18");
+insert into produto(descricao,preco,estoque,codigoMarca,codigoCategoria,unidade) value ("Dores de cabeça",45.5,"Doril",1,1,20);
+insert into usuario(nome,apelido,codigoCargo) value("Cristian","Cris","1");
+insert into relatorio(dataVenda,nome,filial) value("2019-10-12","doril","São Paulo");
+insert into vendas(produto,quantidade,CPF,nomeVendedor,desconto) value ("doril","1","1704885914","joao","5");
